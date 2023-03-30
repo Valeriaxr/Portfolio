@@ -9,8 +9,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^9.57.3",
+    "@react-three/fiber": "^8.12.0",
+    "framer-motion": "^10.3.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-native-typewriter": "^0.7.0",
+    "react-router-dom": "^6.9.0",
+    "react-typewriter-hook": "^1.0.1",
+    "react-typing-effect": "^2.0.5",
+    "styled-components": "^5.3.8",
+    "three": "^0.150.1",
+    "typeit-react": "^2.6.4",
+    "typing": "^0.1.9"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
