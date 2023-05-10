@@ -1,102 +1,98 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-scroll';
 import styled from 'styled-components';
 
 
+
+
 const Section = styled.div`
-    display: flex;
-    justify-content: center;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  margin-left: 90px;
 
-
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    margin-left: 4%;
+  }
 `;
 
 const Container = styled.div`
-    width: 1400px;
-    display flex;
-    justify-content: space-between;
+  width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  padding: 10px 0px;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background-color: clear;
-    padding: 10px 0px;
+    width: 100%;
+    padding: 10px;
+
+  }
 `;
 
 const Links = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 50px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+  }
 `;
 
-const Logo = styled.img`
-    height: 130px;
+const NavbarLink = styled(Link)`
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: #3a3a3a;
+  }
+
+
+  @media only screen and (max-width: 768px) {
+    display: block;
+    padding: 3px;
+    font-size: 14px;
+    margin-right: 38px;
+
+    &:last-child {
+      margin-right: -80;
+    }
+  }
 `;
-
-
-const List = styled.ul`
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    cursor: pointer;
-    position: absolute;
-    top: 40px;
-    right:1150px;
-`;
-
-
-const ListItem = styled.li`
-    cursor: pointer;
-    color: white;
-`;
-
-const Icons = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 5px;
-`;
-
-
-const Icon = styled.img`
-    height: 20px;
-    cursor: pointer;
-    position: relative;
-    top: -20px;
-`;
-
-
-const Button = styled.button`
-    width: 100px;
-    padding: 5px;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius; 30px;
-    cursor: pointer;
-    position: relative;
-    top: -20px;
-    left: 0;
-
-
-`;
-
-
-
 
 const Navbar = () => {
-    return (
-        <Section>
-            <Container>
-                <Links>
-                    <Logo src="./VR.png" />
-                    <List>
-                        <ListItem>Projects</ListItem>
-                        <ListItem>Resume</ListItem>
-                        <ListItem>Contact</ListItem>
-                    </List>
-                </Links>
-                    <Icons>
-                        <Icon src="./glass.png"/>
-                        <Button>Contact Me</Button>
-                    </Icons>
-            </Container>
-        </Section>
-    )
-}
+  return (
+    <Section>
+      <Container>
+        <Links>
+          <NavbarLink to="hero" smooth={true} duration={500}>
+            Home
+          </NavbarLink>
+          <NavbarLink to="projects" smooth={true} duration={500}>
+            Projects
+          </NavbarLink>
+          <NavbarLink to="resume" smooth={true} duration={500}>
+            Resume
+          </NavbarLink>
+          <NavbarLink to="contact" smooth={true} duration={500}>
+            Contact
+          </NavbarLink>
+        </Links>
+      </Container>
+    </Section>
+  );
+};
 
-export default Navbar
+export default Navbar;

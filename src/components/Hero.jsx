@@ -1,133 +1,221 @@
-import React from 'react'
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import Navbar from "./Navbar";
-import Earth from "./Earth"
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls} from '@react-three/drei';
+// import Butterflies from "./Butterflies";
+// import { Canvas } from '@react-three/fiber';
+// import { OrbitControls, Stage, Float } from '@react-three/drei';
+
 
 const Section = styled.div`
-  height: calc(100vh - 80px);
+  height: 100vh;
+  scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
   justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-  background-color: #000;
-  position: relative;
+
+  @media only screen and (max-width: 768px) {
+    height: 100vh;
+    overflow-x: hidden;
+  }
 `;
 
 
 const Container = styled.div`
-    height: 100vh;
-    scroll-snap-align: center;
-    width: 1400px;
-    display: flex;
-    justify-content: space-between;
+  height: 100%;
+  scroll-snap-align: center;
+  width: 1400px;
+  display: flex;
+  justify-content: space-between;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
-const Left = styled.div`
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
+const Mid = styled.div`
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  margin-left: 90px;
+  margin-right: 50px;
+  align-items: center;
+  justify-content: center;
+
+  @media only screen and (max-width: 768px) {
+    flex: 1;
+    align-items: center;
+    width: 150%;
+  }
 `;
 
 const Title = styled.h1`
-    font-size: 74px;
-    color: white;
+  font-size: 50px;
+  color: white;
+  line-height: 0.7;
+
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+    width: 90%;
+    margin-left: -30px;
+    font-size: 40px;
+  }
 `;
 
-
-const Bio = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 10px;
+const Sub = styled.div`
+  display: flex;
+  font-size: 15px;
+  align-items: center;
+  gap: 10px;
 `;
 
-
-const Line = styled.img`
-    height: 5px;
-`;
 
 const Subtitle = styled.h2`
-    color: white;
+  color: #1D1836;
+
+  @media only screen and (max-width: 768px) {
+
+    margin-left: -25px;
+
+  }
 `;
 
-
 const Desc = styled.p`
-    font-size: 24px;
-    color: lightgray;
+  font-size: 20px;
+  color: white;
+  width: 55%;
+  line-height: 1.3;
+  text-align: center;
+
+  @media only screen and (max-width: 768px) {
+    padding: 20px;
+    text-align: center;
+    margin-right: 30px;
+
+  }
 `;
 
 const Button = styled.button`
-    background-color: white;
-    font-weight: 500;
-    width: 100px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #1D1836;
+  color: white;
+  font-weight: 500;
+  width: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 999;
+
+
+  @media only screen and (max-width: 768px) {
+    padding: 15px;
+    text-align: center;
+    margin-right: 30px;
+
+  }
 `;
 
 
-const Right = styled.div`
-    flex: 3;
-    position: relative;
+// const ButterContainer = styled.div`
+//   position: absolute;
+//   bottom: 55%;
+//   right: 15%;
 
-`;
+//   @media only screen and (max-width: 768px) {
+//     height: 58vh;
+//     right: 3%;
 
+//   }
+// `
 
-// const Img = styled.img`
-//     width: 350px;
-//     height: 350px;
-//     object-fit: contain:
-//     postion: absolute;
-//     top: 0;
-//     bottom: 0;
-//     left: 0;
-//     right: 0;
-//     margin: auto;
-//     animation: animate 2s infinite ease alternate;
-//     z-index: 1;
+// const ButterContainerTwo = styled.div`
+//   position: absolute;
+//   bottom: 30%;
+//   right: 69%;
 
-//     @keyframes animate {
-//         to{
-//             transform: translateY(35px);
-//         }
-//     }
+//   @media only screen and (max-width: 768px) {
+//     display: none;
 
-// `;
+//   }
+// `
 
 
-const Hero = () => {
 
-    return (
-        <Section>
-            <Navbar >
-            <Container>
-                <Left>
-                    <Title>Valeria's Portfolio</Title>
-                    <Bio>
-                        <Line></Line>
-                        <Subtitle>Fullstack Software Developer</Subtitle>
-                    </Bio>
-                    <Desc>React, JavaScript, Python</Desc>
-                    <Button>Contact Me</Button>
-                </Left>
-                <Right>
-                    <Canvas>
-                        <OrbitControls enableZoom={false} />
-                        <mesh>
-                            <Earth />
-                        </mesh>
-                    </Canvas>
-                </Right>
-            </Container>
-            </Navbar>
-        </Section>
-    )
-}
+const pageSelect = (selector) => {
+  console.log("clicked:", selector);
+  const element = document.querySelector(selector);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
-export default Hero
+
+
+const Hero=()=> {
+
+  return (
+    <>
+    <Section id='hero'>
+      <Navbar />
+      <Container>
+        <Mid>
+          <Title>Valeria&nbsp;Ramirez</Title>
+          <Sub>
+            <Subtitle>Software Developer</Subtitle>
+          </Sub>
+          <Desc>
+            I'm a full-stack software developer with experience in a variety of technologies.
+            I'm passionate about developing scalable and efficient web applications, and I'm skilled
+            in using domain-driven design principles to create robust and maintainable systems.
+          </Desc>
+          <Button onClick={() => pageSelect('#contact')}>Contact Me</Button>
+        </Mid>
+
+
+      {/* <ButterContainer>
+        <Canvas camera={{ position: [0, 0, 0.1] }}>
+            <ambientLight intensity={0.5} />
+            <Stage environment="city" intensity={0.9}>
+              <Float
+                  speed={2} // Animation speed, defaults to 1
+                  rotationIntensity={4} // XYZ rotation intensity, defaults to 1
+                  floatIntensity={9} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+                  floatingRange={[1, 1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+                >
+                <Butterflies scale={3} position={[18,-3, 6]}/>
+              <OrbitControls enableZoom={false} />
+              </Float>
+          </Stage>
+        </Canvas>
+      </ButterContainer>
+
+      <ButterContainerTwo>
+        <Canvas>
+            <ambientLight intensity={0.5} />
+            <Stage environment="park" intensity={0.6}>
+              <Float
+                  speed={2} // Animation speed, defaults to 1
+                  rotationIntensity={2} // XYZ rotation intensity, defaults to 1
+                  floatIntensity={7} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+                  floatingRange={[1, 1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+                >
+                <Butterflies position={[-70,-90,-85]}/>
+              <OrbitControls enableZoom={false} />
+            </Float>
+          </Stage>
+        </Canvas>
+      </ButterContainerTwo> */}
+      </Container>
+    </Section>
+  </>
+  );
+};
+
+
+export default Hero;
