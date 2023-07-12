@@ -7,14 +7,15 @@ This is my portfolio showcasing my work and projects, built using React, JavaScr
 
 # Table of Contents
 
-Introduction
-Features
-Technologies
-Installation
-Usage
-Contributing
+Introduction,
+Features,
+Technologies,
+Installation,
+Usage,
+Contributing,
 
-Introduction
+# Introduction
+
 Welcome to my portfolio! This website serves as a showcase of my skills, experience, and projects. It is designed to provide visitors with an interactive and visually appealing experience. The use of React, JavaScript, Three.js, Yarn, and Styled Components allows for a smooth and dynamic user interface.
 
 # Features
