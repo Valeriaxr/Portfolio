@@ -11,8 +11,7 @@ Introduction,
 Features,
 Technologies,
 Installation,
-Usage,
-Contributing,
+Usage
 
 # Introduction
 
