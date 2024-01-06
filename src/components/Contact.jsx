@@ -88,7 +88,7 @@ const Contact = () => {
     e.preventDefault()
 
 
-    emailjs.sendForm('service_j6djqiz', 'template_miksu4q', ref.current, 'sfLvfIAeMkkpqa_xH')
+    emailjs.sendForm('service_j6djqiz', 'template_miksu4q', ref.current, 'oeww_OtpSso6be-gD')
     .then((result) => {
         console.log(result.text);
         setSuccess(true)
